@@ -63,13 +63,13 @@ function updateScores() {
 
 
 function saveAsCookie() {
-  document.cookie = "playerScoreHistory=" + playerScore + ";expires=Thu, 29 Dec 2030 12:00:00 UTC";
-  document.cookie = "AIScoreHistory=" + aiScore + ";expires=Thu, 29 Dec 2030 12:00:00 UTC";
+  document.cookie = "playerScore=" + playerScore + ";expires=Thu, 29 Dec 2030 12:00:00 UTC";
+  document.cookie = "AIScore=" + aiScore + ";expires=Thu, 29 Dec 2030 12:00:00 UTC";
 }
 
 function LoadGame() {
-  playerScore = getCookie("playerScoreHistory") || 0; //
-  aiScore = getCookie("AIScoreHistory") || 0; //
+  playerScore = getCookie("playerScore") || 0; //
+  aiScore = getCookie("AIScore") || 0; //
 }
 
 function getCookie(cname) {
@@ -89,3 +89,7 @@ function getCookie(cname) {
 }
 
 
+window.onload = function() {
+  LoadGame();
+  updateScores();
+};
