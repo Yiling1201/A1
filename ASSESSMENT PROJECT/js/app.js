@@ -68,8 +68,10 @@ function saveAsCookie() {
 }
 
 function LoadGame() {
-  playerScore = getCookie("playerScore") || 0; //
-  aiScore = getCookie("AIScore") || 0; //
+  //game loaded from 2 cookies
+  playerScore = getCookie("playerScore");
+  aiScore = getCookie("AIScore");
+  //showscore();
 }
 
 function getCookie(cname) {
@@ -88,6 +90,34 @@ function getCookie(cname) {
   return "";
 }
 
+
+window.onload = function() {
+  LoadGame();
+  updateScores();
+};
+
+
+let button1 = document.getElementById("button1");
+
+button1.addEventListener("click", function() {
+  resetGame();
+});
+
+// Reset the game
+function resetGame() {
+  playerRoll = 0;
+  aiRoll = 0;
+  playerRollText.innerHTML = "Player rolled: 0";
+  aiRollText.innerHTML = "AI rolled: 0";
+  resultText.innerHTML = "Result: ";
+
+  playerScore = 0;
+  aiScore = 0;
+  playerScoreText.innerHTML = "Player Score: 0";
+  aiScoreText.innerHTML = "AI Score: 0";
+
+  saveAsCookie();
+}
 
 window.onload = function() {
   LoadGame();
