@@ -90,7 +90,6 @@ function getCookie(cname) {
   return "";
 }
 
-
 window.onload = function() {
   LoadGame();
   updateScores();
